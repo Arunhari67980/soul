@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(45deg, #0e0506, #0a0504);
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-nav .nav-link {
+      color: #ffffff !important;
+    }
+    .navbar-brand {
+      color: #ffffff !important;
+    }
+    .navbar-toggler-icon {
+      color: #ffffff !important;
+    }
+    .navbar {
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #letter {
+      text-align: center;
+      padding: 30px;
+      background-color: rgba(244, 18, 18, 0.2);
+      border-radius: 10px;
+      margin: 20px 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 3px solid transparent;
+      animation: blink-border 1s infinite;
+    }
+    #letter:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+    #letter h3, #letter p {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+    }
+    #countdown {
+      text-align: center;
+      padding: 50px;
+      transition: all 0.3s ease;
+    }
+    #countdown h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    #countdown-timer {
+      font-size: 2em;
+      font-weight: bold;
+      transition: color 1s ease;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink-border {
+      0% {
+        border-color: transparent;
+      }
+      50% {
+        border-color: #ff00ff;
+      }
+      100% {
+        border-color: transparent;
+      }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="#">
+        <img src="images/children-817365_1280.jpg" alt="Logo" style="width: 50px; height: 50px;">SoulFriends
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Welcome</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="countdown.html">CD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="message.html">EverBond</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dedication.html">SoulFrame</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section id="letter">
+    <h3>Dear Kullachi,</h3>
+    <p>As the countdown to your special day begins, I wanted to take a moment to remind you just how wonderful you are. Your kindness, strength, and endless positivity light up the lives of everyone around you. On this upcoming birthday, may you be showered with all the love and joy you deserve. Let this new year bring even more opportunities for laughter, success, and unforgettable moments. Here's to celebrating you and all the amazing things you bring to the world!</p>
+    <p>Happy Birthday in advance, Kullachi! 🎉</p>
+    <p>With all my love,</p>
+    <p>Your Nettapaiyyan</p>
+  </section>
+  <section id="countdown">
+    <h2>Countdown to Kullachi's Birthday</h2>
+    <div id="countdown-timer"></div>
+  </section>
+  <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Countdown Timer
+    const countdownDate = new Date("2025-03-07T00:00:00").getTime();
+
+    const updateCountdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown-timer").innerHTML = `
+        ${days}d ${hours}h ${minutes}m ${seconds}s
+      `;
+
+      if (distance < 0) {
+        clearInterval(updateCountdown);
+        document.getElementById("countdown-timer").innerHTML = "Happy Birthday, Kullachi! 🎉";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
